@@ -2,24 +2,30 @@ import {
   Button,
   Container,
   Divider,
+  Link,
   TextField,
   Typography,
 } from "@mui/material";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { compress } from "./compression";
+import { useSearchParams } from "react-router-dom";
 
-const SimpleRepetitionSuppression = () => {
-  const [value, setValue] = useState("");
+const SRSCompression = () => {
+  const [searchParams] = useSearchParams();
+  const [value, setValue] = useState(searchParams.get("text") ?? "");
   const [error, setError] = useState("");
   const [compressed, setCompressed] = useState("");
   const [saving, setSaving] = useState(0);
 
+  useEffect(() => {
+    const regex = new RegExp("^[0-9]*$");
+    if (regex.test(value)) setError("");
+    else setError("Must contain only numbers.");
+  }, [value]);
+
   const handleValueUpdate = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setValue(newValue);
-    const regex = new RegExp("^[0-9]*$");
-    if (regex.test(newValue)) setError("");
-    else setError("Must contain only numbers.");
   };
 
   const createCompression = () => {
@@ -74,7 +80,7 @@ const SimpleRepetitionSuppression = () => {
             style={{ marginTop: 50, width: "80%", textAlign: "center" }}
             multiline={true}
             value={compressed}
-            inputProps={{style: { textAlign: 'center' }}}
+            inputProps={{ style: { textAlign: "center" } }}
           />
           <Typography
             variant={"h5"}
@@ -88,10 +94,13 @@ const SimpleRepetitionSuppression = () => {
               {saving}%
             </span>
           </Typography>
+          <Link href={`/srs/decompression?text=${compressed}`} marginTop={10}>
+            Compress Text
+          </Link>
         </>
       )}
     </Container>
   );
 };
 
-export default SimpleRepetitionSuppression;
+export default SRSCompression;
