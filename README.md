@@ -1,30 +1,45 @@
-# React + TypeScript + Vite
+# Multimedia Course Compression Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project explores different compression techniques and implements a user interface for applying them through a React website.
 
-Currently, two official plugins are available:
+## Project Goal:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Implement loseless compression algorithms
 
-## Expanding the ESLint configuration
+## Running the Project:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Option 1: Using Docker
 
-- Configure the top-level `parserOptions` property like this:
+- Build the Docker image from the base file in the website folder following the instructions provided there.  
+`
+docker build -t multimedia .
+`
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Run the container and map the container port (80) to your host machine's port (usually 3000).  
+`
+docker run --name multimedia -p 3000:80 -d --rm multimedia
+`
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Option 2: Using Node.js (without Docker)
+
+- Install N
+- Navigate to the website folder in your terminal.
+- Install dependencies:  
+`
+pnpm install
+`
+- Start the development server:  
+`
+pnpm run dev
+`
+- This will start the website at http://localhost:5173/ (or a different port if specified) for live development.
+- Build the website for production:  
+`
+pnpm run build
+`  
+This will create an optimized production build in the website/dist folder.
+
+
+## Acknowledgments
+
+I would like to thank Dr. Osama Farouk for his guidance and support throughout this project. His lectures and feedback were invaluable in helping me understand the concepts and complete this project successfully.
