@@ -9,6 +9,8 @@ import PatternCompression from "./pattern/PatternCompression";
 import PatternDecompression from "./pattern/PatternDecompression";
 import SFCompression from "./SF/SFCompression";
 import SFDecompression from "./SF/SFDecompression";
+import HuffmanCompression from "./Huffman/HuffmanCompression";
+import HuffmanDecompression from "./Huffman/HuffmanDecompression";
 
 const theme = createTheme({
   palette: {
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
   {
     path: "/sf/decompression",
     element: <SFDecompression />,
+  },
+  {
+    path: "/huffman/compression",
+    element: <HuffmanCompression />,
+  },
+  {
+    path: "/huffman/decompression",
+    element: <HuffmanDecompression />,
   }
 ]);
 
