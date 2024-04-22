@@ -24,7 +24,6 @@ const PatternDecompression = () => {
 
   const createDecompression = () => {
     const res = decompress(value, map);
-    console.log("res = " + res);
     setDecompressed(res);
   };
 

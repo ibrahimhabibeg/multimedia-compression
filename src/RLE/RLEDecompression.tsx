@@ -22,7 +22,6 @@ const RLEDecompression = () => {
 
   const createDecompression = () => {
     const res = decompress(value);
-    console.log('res = ' +res)
     setDecompressed(res);
   };
 
