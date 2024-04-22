@@ -9,6 +9,7 @@ import {
 import { ChangeEvent, useEffect, useState } from "react";
 import { compress } from "./compression";
 import { useSearchParams } from "react-router-dom";
+import Footer from "../Footer";
 
 const SRSCompression = () => {
   const [searchParams] = useSearchParams();
@@ -99,6 +100,7 @@ const SRSCompression = () => {
           </Link>
         </>
       )}
+      <Footer />
     </Container>
   );
 };

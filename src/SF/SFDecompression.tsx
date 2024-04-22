@@ -9,6 +9,7 @@ import { ChangeEvent, useState } from "react";
 import { decompress } from "./compression";
 import { useSearchParams } from "react-router-dom";
 import Link from "@mui/material/Link";
+import Footer from "../Footer";
 
 const SFDecompression = () => {
   const [searchParams] = useSearchParams();
@@ -85,6 +86,7 @@ const SFDecompression = () => {
           </Link>
         </>
       )}
+      <Footer />
     </Container>
   );
 };

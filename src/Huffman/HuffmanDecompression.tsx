@@ -9,6 +9,7 @@ import { ChangeEvent, useState } from "react";
 import { decompress } from "./compression";
 import { useSearchParams } from "react-router-dom";
 import Link from "@mui/material/Link";
+import Footer from "../Footer";
 
 const HuffmanDecompression = () => {
   const [searchParams] = useSearchParams();
@@ -80,11 +81,15 @@ const HuffmanDecompression = () => {
             value={decompressed}
             inputProps={{ style: { textAlign: "center" } }}
           />
-          <Link href={`/huffman/compression?text=${decompressed}`} marginTop={10}>
+          <Link
+            href={`/huffman/compression?text=${decompressed}`}
+            marginTop={10}
+          >
             Compress Text
           </Link>
         </>
       )}
+      <Footer />
     </Container>
   );
 };

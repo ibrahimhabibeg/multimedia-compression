@@ -9,6 +9,7 @@ import {
 import { ChangeEvent, useEffect, useState } from "react";
 import { compress, replacement } from "./compression";
 import { useSearchParams } from "react-router-dom";
+import Footer from "../Footer";
 
 const PatternCompression = () => {
   const [searchParams] = useSearchParams();
@@ -93,7 +94,6 @@ const PatternCompression = () => {
             multiline={true}
             value={compressed}
             inputProps={{ style: { textAlign: "center" } }}
-
           />
           <Typography variant={"h4"} textAlign={"center"}>
             Map
@@ -116,11 +116,15 @@ const PatternCompression = () => {
               {saving}%
             </span>
           </Typography>
-          <Link href={`/pattern/decompression?text=${compressed}&map=${compressedMap}`} marginTop={10}>
+          <Link
+            href={`/pattern/decompression?text=${compressed}&map=${compressedMap}`}
+            marginTop={10}
+          >
             Decompress Text
           </Link>
         </>
       )}
+      <Footer />
     </Container>
   );
 };

@@ -9,6 +9,7 @@ import {
 import { ChangeEvent, useState } from "react";
 import { compress } from "./compression";
 import { useSearchParams } from "react-router-dom";
+import Footer from "../Footer";
 
 const SFCompression = () => {
   const [searchParams] = useSearchParams();
@@ -26,7 +27,7 @@ const SFCompression = () => {
     const { compressed: res, map } = compress(value);
     setCompressed(res);
     setCompressedMap(map);
-    setSaving(Math.round((1 - (res.length/8 )/ value.length) * 100));
+    setSaving(Math.round((1 - res.length / 8 / value.length) * 100));
   };
 
   return (
@@ -109,6 +110,7 @@ const SFCompression = () => {
           </Link>
         </>
       )}
+      <Footer />
     </Container>
   );
 };

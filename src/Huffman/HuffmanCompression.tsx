@@ -9,6 +9,7 @@ import {
 import { ChangeEvent, useState } from "react";
 import { compress } from "./compression";
 import { useSearchParams } from "react-router-dom";
+import Footer from "../Footer";
 
 const HuffmanCompression = () => {
   const [searchParams] = useSearchParams();
@@ -24,10 +25,10 @@ const HuffmanCompression = () => {
 
   const createCompression = () => {
     const { compressed: res, map } = compress(value);
-    console.log(res)
+    console.log(res);
     setCompressed(res);
     setCompressedMap(map);
-    setSaving(Math.round((1 - (res.length/8 )/ value.length) * 100));
+    setSaving(Math.round((1 - res.length / 8 / value.length) * 100));
   };
 
   return (
@@ -110,6 +111,7 @@ const HuffmanCompression = () => {
           </Link>
         </>
       )}
+      <Footer />
     </Container>
   );
 };

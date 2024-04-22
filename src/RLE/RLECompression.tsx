@@ -9,6 +9,7 @@ import {
 import { ChangeEvent, useState } from "react";
 import { compress } from "./compression";
 import { useSearchParams } from "react-router-dom";
+import Footer from "../Footer";
 
 const RLECompression = () => {
   const [searchParams] = useSearchParams();
@@ -90,6 +91,7 @@ const RLECompression = () => {
           </Link>
         </>
       )}
+      <Footer />
     </Container>
   );
 };

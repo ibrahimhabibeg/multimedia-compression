@@ -1,5 +1,6 @@
 import { Card, Container, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -132,6 +133,7 @@ const Home = () => {
           Huffman Coding
         </Typography>
       </Card>
+      <Footer />
     </Container>
   );
 };
