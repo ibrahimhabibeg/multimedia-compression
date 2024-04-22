@@ -1,8 +1,8 @@
-import SRSCompression from "./SRS/SRSCompression";
+import RSSCompression from "./RSS/RSSCompression";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import SRSDecompression from "./SRS/SRSDecompression";
+import RSSDecompression from "./RSS/RSSDecompression";
 import RLECompression from "./RLE/RLECompression";
 import RLEDecompression from "./RLE/RLEDecompression";
 import PatternCompression from "./pattern/PatternCompression";
@@ -25,12 +25,12 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/srs/compression",
-    element: <SRSCompression />,
+    path: "/rss/compression",
+    element: <RSSCompression />,
   },
   {
-    path: "/srs/decompression",
-    element: <SRSDecompression />,
+    path: "/rss/decompression",
+    element: <RSSDecompression />,
   },
   {
     path: "/rle/compression",

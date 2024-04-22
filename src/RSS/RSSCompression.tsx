@@ -2,24 +2,25 @@ import {
   Button,
   Container,
   Divider,
+  Link,
   TextField,
   Typography,
 } from "@mui/material";
 import { ChangeEvent, useEffect, useState } from "react";
-import { decompress } from "./compression";
+import { compress } from "./compression";
 import { useSearchParams } from "react-router-dom";
-import Link from "@mui/material/Link";
 
-const SRSDecompression = () => {
+const SRSCompression = () => {
   const [searchParams] = useSearchParams();
   const [value, setValue] = useState(searchParams.get("text") ?? "");
   const [error, setError] = useState("");
-  const [decompressed, setDecompressed] = useState("");
+  const [compressed, setCompressed] = useState("");
+  const [saving, setSaving] = useState(0);
 
   useEffect(() => {
-    const regex = new RegExp("^[a-j]([0-9]|[a-j])*$");
+    const regex = new RegExp("^[0-9]*$");
     if (regex.test(value)) setError("");
-    else setError("Must sure it is a valid SRS compressed text.");
+    else setError("Must contain only numbers.");
   }, [value]);
 
   const handleValueUpdate = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,9 +28,10 @@ const SRSDecompression = () => {
     setValue(newValue);
   };
 
-  const createDecompression = () => {
-    const res = decompress(value);
-    setDecompressed(res);
+  const createCompression = () => {
+    const res = compress(value);
+    setCompressed(res);
+    setSaving(Math.round((1 - res.length / value.length) * 100));
   };
 
   return (
@@ -43,12 +45,12 @@ const SRSDecompression = () => {
       }}
     >
       <Typography variant={"h3"} textAlign={"center"}>
-        Simple Repetition Suppression Decompression
+        Repetitive Sequence Suppression Compression
       </Typography>
       <TextField
         style={{ marginTop: 50, width: "80%" }}
         multiline={true}
-        placeholder={"Enter text to decompress"}
+        placeholder={"Enter text to compress"}
         onChange={handleValueUpdate}
         error={error !== ""}
         helperText={error}
@@ -58,12 +60,12 @@ const SRSDecompression = () => {
         variant="contained"
         style={{ marginTop: 40 }}
         disabled={error !== "" || value == ""}
-        onClick={createDecompression}
+        onClick={createCompression}
       >
-        Decompress
+        Compress
       </Button>
 
-      {decompressed && (
+      {compressed && (
         <>
           <Divider
             orientation="horizontal"
@@ -72,15 +74,27 @@ const SRSDecompression = () => {
             style={{ marginTop: 40, marginBottom: 40 }}
           />
           <Typography variant={"h4"} textAlign={"center"}>
-            Decompressed Text
+            Compressed Text
           </Typography>
           <TextField
             style={{ marginTop: 50, width: "80%", textAlign: "center" }}
             multiline={true}
-            value={decompressed}
+            value={compressed}
             inputProps={{ style: { textAlign: "center" } }}
           />
-          <Link href={`/srs/compression?text=${decompressed}`} marginTop={10}>
+          <Typography
+            variant={"h5"}
+            textAlign={"center"}
+            style={{ marginTop: 30 }}
+          >
+            You saved{" "}
+            <span
+              style={saving >= 25 ? { color: "lightgreen" } : { color: "red" }}
+            >
+              {saving}%
+            </span>
+          </Typography>
+          <Link href={`/srs/decompression?text=${compressed}`} marginTop={10}>
             Compress Text
           </Link>
         </>
@@ -89,4 +103,4 @@ const SRSDecompression = () => {
   );
 };
 
-export default SRSDecompression;
+export default SRSCompression;

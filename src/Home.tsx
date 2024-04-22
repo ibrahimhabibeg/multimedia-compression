@@ -18,7 +18,7 @@ const Home = () => {
         Loseless Compression Algorithms Project
       </Typography>
       <Card
-        onClick={() => navigate("/srs/compression")}
+        onClick={() => navigate("/rss/compression")}
         style={{
           marginTop: 40,
           width: "80%",
