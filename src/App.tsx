@@ -5,6 +5,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SRSDecompression from "./SRS/SRSDecompression";
 import RLECompression from "./RLE/RLECompression";
 import RLEDecompression from "./RLE/RLEDecompression";
+import PatternCompression from "./pattern/PatternCompression";
+import PatternDecompression from "./pattern/PatternDecompression";
 
 const theme = createTheme({
   palette: {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
   {
     path: "/rle/decompression",
     element: <RLEDecompression />,
+  },
+  {
+    path: "/pattern/compression",
+    element: <PatternCompression />,
+  },
+  {
+    path: "/pattern/decompression",
+    element: <PatternDecompression />,
   }
 ]);
 
