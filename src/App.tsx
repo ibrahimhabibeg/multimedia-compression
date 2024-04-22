@@ -1,6 +1,7 @@
 import SimpleRepetitionSuppression from "./SimpleRepetitionSuppression/SimpleRepetitionSuppression";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -8,11 +9,18 @@ const theme = createTheme({
   },
 });
 
+const router = createBrowserRouter([
+  {
+    path: "/SimpleRepetitionSuppression",
+    element: <SimpleRepetitionSuppression />,
+  },
+]);
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <SimpleRepetitionSuppression />
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }
