@@ -7,6 +7,8 @@ import RLECompression from "./RLE/RLECompression";
 import RLEDecompression from "./RLE/RLEDecompression";
 import PatternCompression from "./pattern/PatternCompression";
 import PatternDecompression from "./pattern/PatternDecompression";
+import SFCompression from "./SF/SFCompression";
+import SFDecompression from "./SF/SFDecompression";
 
 const theme = createTheme({
   palette: {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
   {
     path: "/pattern/decompression",
     element: <PatternDecompression />,
+  },
+  {
+    path: "/sf/compression",
+    element: <SFCompression />,
+  },
+  {
+    path: "/sf/decompression",
+    element: <SFDecompression />,
   }
 ]);
 
