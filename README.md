@@ -2,6 +2,9 @@
 
 This project explores different compression techniques and implements a user interface for applying them through a React website.
 
+## Live Website Link:
+https://multimedia-compression.onrender.com/
+
 ## Project Goal:
 
 Implement loseless compression algorithms
