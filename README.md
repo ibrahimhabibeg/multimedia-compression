@@ -22,7 +22,11 @@ docker run --name multimedia -p 3000:80 -d --rm multimedia
 
 Option 2: Using Node.js (without Docker)
 
-- Install N
+- Install Node and npm from https://nodejs.org/en/download
+- Install pnpm  
+`
+npm i -g pnpm
+`
 - Navigate to the website folder in your terminal.
 - Install dependencies:  
 `
