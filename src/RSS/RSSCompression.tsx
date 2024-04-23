@@ -95,8 +95,8 @@ const SRSCompression = () => {
               {saving}%
             </span>
           </Typography>
-          <Link href={`/srs/decompression?text=${compressed}`} marginTop={10}>
-            Compress Text
+          <Link href={`/rss/decompression?text=${compressed}`} marginTop={10}>
+            Decompress Text
           </Link>
         </>
       )}

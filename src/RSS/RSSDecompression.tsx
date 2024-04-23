@@ -81,7 +81,7 @@ const RSSDecompression = () => {
             value={decompressed}
             inputProps={{ style: { textAlign: "center" } }}
           />
-          <Link href={`/srs/compression?text=${decompressed}`} marginTop={10}>
+          <Link href={`/rss/compression?text=${decompressed}`} marginTop={10}>
             Compress Text
           </Link>
         </>
